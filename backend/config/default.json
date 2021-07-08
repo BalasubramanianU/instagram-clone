@@ -1,0 +1,5 @@
+{
+  "db": "mongodb://127.0.0.1:27017/instagram-clone",
+  "jwtKey": "developmentKey",
+  "port": "5000"
+}

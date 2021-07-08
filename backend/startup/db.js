@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 
+const config = require("config");
+
 module.exports = function () {
   mongoose
-    .connect("mongodb://127.0.0.1:27017/instagram-clone", {
+    .connect(config.get("db"), {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })

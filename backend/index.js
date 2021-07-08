@@ -1,10 +1,14 @@
 const express = require("express");
 const app = express();
 
-const { port } = require("./config");
 require("./startup/routes")(app);
 require("./startup/db")();
 
-var server = app.listen(port);
+const config = require("config");
+
+const port = process.env.PORT || config.get("port");
+var server = app.listen(port, () => {
+  console.log(`listening on port:${port}`);
+});
 
 module.exports = { server };

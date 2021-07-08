@@ -10,13 +10,14 @@
     ]
   },
   "scripts": {
-    "test": "jest --watchAll --coverage"
+    "test": "set NODE_ENV=test&&jest --watchAll --coverage"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/jest": "^26.0.23",
     "clean": "^4.0.2",
+    "config": "^3.3.6",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jest": "^27.0.6",

@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
-const { token_secret } = require("../config");
 const User = require("../models/user");
 
+const config = require("config");
 const jwt = require("jsonwebtoken");
 
 function generateJwtToken(payload) {
-  return jwt.sign(payload, token_secret);
+  return jwt.sign(payload, config.get("jwtKey"));
 }
 
 router.post("/", async (req, res) => {
