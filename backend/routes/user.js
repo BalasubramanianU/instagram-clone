@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const User = require("../models/user");
+const { UserWithEmail, UserWithNumber } = require("../models/user");
 
 const config = require("config");
 const jwt = require("jsonwebtoken");
@@ -11,7 +11,9 @@ function generateJwtToken(payload) {
 }
 
 router.post("/", async (req, res) => {
-  let user = new User(req.body);
+  let user = req.body.email
+    ? new UserWithEmail(req.body)
+    : new UserWithNumber(req.body);
   await user.save();
   const token = generateJwtToken(req.body);
   res.status(200).send(token);
