@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/jest": "^26.0.23",
+    "bcrypt": "^5.0.1",
     "clean": "^4.0.2",
     "config": "^3.3.6",
     "dotenv": "^10.0.0",
