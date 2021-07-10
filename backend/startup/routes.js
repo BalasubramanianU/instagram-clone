@@ -1,8 +1,10 @@
 const express = require("express");
 
-const { router } = require("../routes/user");
+const home = require("../routes/home");
+const user = require("../routes/user");
 
 module.exports = function (app) {
   app.use(express.json());
-  app.use("/user", router);
+  app.use("/home", home);
+  app.use("/user", user);
 };

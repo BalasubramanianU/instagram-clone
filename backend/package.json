@@ -10,7 +10,7 @@
     ]
   },
   "scripts": {
-    "test": "set NODE_ENV=test&&jest --watchAll --coverage"
+    "test": "set NODE_ENV=test&&jest --watchAll --coverage --runInBand"
   },
   "author": "",
   "license": "ISC",

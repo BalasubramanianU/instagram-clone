@@ -1,10 +1,10 @@
 const request = require("supertest");
 
-const server = require("../../../index");
-const { generateJwtToken } = require("../../../routes/user");
+const { generateJwtToken } = require("../../../utils/user");
 const { UserWithEmail, UserWithNumber } = require("../../../models/user");
 
-describe("signup", () => {
+describe("signup route", () => {
+  let server;
   const payloadWithEmail = {
     email: "test123@gmail.com",
     fullName: "test",
@@ -13,6 +13,10 @@ describe("signup", () => {
   };
 
   describe("signup with email", () => {
+    beforeEach(() => {
+      server = require("../../../index");
+    });
+
     afterEach(async () => {
       await UserWithEmail.deleteOne(payloadWithEmail);
       await server.close();
@@ -37,6 +41,10 @@ describe("signup", () => {
   };
 
   describe("signup with mobile number", () => {
+    beforeEach(() => {
+      server = require("../../../index");
+    });
+
     afterEach(async () => {
       await UserWithNumber.deleteOne(payloadWithNumber);
       await server.close();
@@ -54,13 +62,18 @@ describe("signup", () => {
   });
 });
 
-describe("login", () => {
+describe("login route", () => {
+  let server;
   const payloadWithEmail = {
     email: "test@gmail.com",
     password: "abc@123",
   };
 
   describe("login with email", () => {
+    beforeEach(() => {
+      server = require("../../../index");
+    });
+
     afterEach(async () => {
       await server.close();
     });
@@ -82,6 +95,10 @@ describe("login", () => {
   };
 
   describe("login with mobile number", () => {
+    beforeEach(() => {
+      server = require("../../../index");
+    });
+
     afterEach(async () => {
       await server.close();
     });
@@ -102,6 +119,10 @@ describe("login", () => {
   };
 
   describe("login with user name inside mobileNumber collections in mongodb", () => {
+    beforeEach(() => {
+      server = require("../../../index");
+    });
+
     afterEach(async () => {
       await server.close();
     });
@@ -121,6 +142,10 @@ describe("login", () => {
   };
 
   describe("login with user name inside mobileNumber collections in mongodb", () => {
+    beforeEach(() => {
+      server = require("../../../index");
+    });
+
     afterEach(async () => {
       await server.close();
     });
