@@ -2,38 +2,42 @@ const express = require("express");
 const router = express.Router();
 
 const { UserWithEmail, UserWithNumber } = require("../models/user");
-const { generateJwtToken, passHash } = require("../utils/user");
-
-// const bcrypt = require("bcrypt");
-// const config = require("config");
-// const jwt = require("jsonwebtoken");
-
-// function generateJwtToken(payload) {
-//   return jwt.sign(payload, config.get("jwtKey"));
-// }
-
-// async function passHash(password) {
-//   const salt = await bcrypt.genSalt(10);
-//   return await bcrypt.hash(password, salt);
-// }
+const {
+  generateJwtToken,
+  passHash,
+  validateSignUpWithEmail,
+  validateSignUpWithNumber,
+  validateLoginWithEmail,
+  validateLoginWithNumber,
+  validateLoginWithName,
+} = require("../utils/user");
 
 router.post("/login", async (req, res) => {
   let user;
-  if (req.body.email)
-    user = await UserWithEmail.findOne({ email: req.body.email });
+  if (req.body.email) {
+    const { error } = validateLoginWithEmail(req.body);
+    if (!error) user = await UserWithEmail.findOne({ email: req.body.email });
+  }
 
-  if (req.body.mobileNumber)
-    user = await UserWithNumber.findOne({
-      mobileNumber: req.body.mobileNumber,
-    });
+  if (req.body.mobileNumber) {
+    const { error } = validateLoginWithNumber(req.body);
+    if (!error)
+      user = await UserWithNumber.findOne({
+        mobileNumber: req.body.mobileNumber,
+      });
+  }
 
   if (!req.body.email && !req.body.mobileNumber) {
-    const userName = await UserWithEmail.findOne({
-      userName: req.body.userName,
-    });
+    const { error } = validateLoginWithName(req.body);
 
-    if (userName) user = userName;
-    else user = await UserWithNumber.findOne({ userName: req.body.userName });
+    if (!error) {
+      const userName = await UserWithEmail.findOne({
+        userName: req.body.userName,
+      });
+
+      if (userName) user = userName;
+      else user = await UserWithNumber.findOne({ userName: req.body.userName });
+    }
   }
 
   const token = generateJwtToken(req.body);
@@ -41,10 +45,17 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/signup", async (req, res) => {
-  let user = req.body.email
-    ? new UserWithEmail(req.body)
-    : new UserWithNumber(req.body);
-  let result;
+  const isEmail = req.body.email ? true : false;
+
+  const { error } = isEmail
+    ? validateSignUpWithEmail(req.body)
+    : validateSignUpWithNumber(req.body);
+
+  let user;
+  if (!error) {
+    user = isEmail ? new UserWithEmail(req.body) : new UserWithNumber(req.body);
+  }
+
   if (
     !(await UserWithEmail.findOne({ userName: user.userName })) &&
     !(await UserWithNumber.findOne({ userName: user.userName }))

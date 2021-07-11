@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const userSchemaWithEmail = new mongoose.Schema({
   email: {
     type: String,
+    required: true,
     minlength: 5,
     maxlength: 255,
     unique: true,
@@ -31,6 +32,7 @@ const userSchemaWithEmail = new mongoose.Schema({
 const userSchemaWithNumber = new mongoose.Schema({
   mobileNumber: {
     type: String,
+    required: true,
     minLength: 4,
     maxLength: 15,
     unique: true,
