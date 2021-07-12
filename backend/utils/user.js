@@ -18,7 +18,11 @@ function validateLoginWithEmail(user) {
 
 function validateLoginWithNumber(user) {
   const schema = Joi.object({
-    mobileNumber: Joi.string().min(4).max(15).required(),
+    mobileNumber: Joi.string()
+      .min(4)
+      .max(15)
+      .pattern(/^[0-9]+$/, "numbers")
+      .required(),
     password: Joi.string().min(5).max(1024).required(),
   });
 
@@ -47,7 +51,11 @@ function validateSignUpWithEmail(user) {
 
 function validateSignUpWithNumber(user) {
   const schema = Joi.object({
-    mobileNumber: Joi.string().min(4).max(15).required(),
+    mobileNumber: Joi.string()
+      .min(4)
+      .max(15)
+      .pattern(/^[0-9]+$/, "numbers")
+      .required(),
     fullName: Joi.string().min(1).max(255).required(),
     userName: Joi.string().min(1).max(255).required(),
     password: Joi.string().min(5).max(1024).required(),
