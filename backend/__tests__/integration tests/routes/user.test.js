@@ -30,6 +30,22 @@ describe("signup route", () => {
       expect(res.status).toBe(200);
       expect(res.header).toHaveProperty("x-auth-header");
     });
+
+    it("checks if it returns 400 and returns a msg if invalid data", async () => {
+      const res = await request(server)
+        .post("/user/signup")
+        .send({ ...payloadWithEmail, email: "" });
+
+      expect(res.status).toBe(400);
+    });
+
+    it("checks if it returns 400 and returns a msg if the user is already exists", async () => {
+      const res = await request(server)
+        .post("/user/signup")
+        .send({ ...payloadWithEmail, email: "test@gmail.com" });
+
+      expect(res.status).toBe(400);
+    });
   });
 
   const payloadWithNumber = {
@@ -112,6 +128,22 @@ describe("login route", () => {
       expect(res.status).toBe(200);
       expect(res.header).toHaveProperty("x-auth-header");
     });
+
+    it("checks if it returns 400 and returns a error message if invalid data", async () => {
+      const res = await request(server)
+        .post("/user/login")
+        .send({ ...payloadWithEmail, email: "dummy" });
+
+      expect(res.status).toBe(400);
+    });
+
+    it("checks if it returns 400 and returns a error message if user doesn't exist", async () => {
+      const res = await request(server)
+        .post("/user/login")
+        .send({ ...payloadWithEmail, email: "test123@gmail.com" });
+
+      expect(res.status).toBe(400);
+    });
   });
 
   const payloadWithNumber = {
@@ -134,6 +166,22 @@ describe("login route", () => {
 
       expect(res.status).toBe(200);
       expect(res.header).toHaveProperty("x-auth-header");
+    });
+
+    it("checks if it returns 400 and returns a error message if invalid data", async () => {
+      const res = await request(server)
+        .post("/user/login")
+        .send({ ...payloadWithNumber, mobileNumber: "dummy" });
+
+      expect(res.status).toBe(400);
+    });
+
+    it("checks if it returns 400 and returns a error message if user doesn't exist", async () => {
+      const res = await request(server)
+        .post("/user/login")
+        .send({ ...payloadWithNumber, mobileNumber: "12345" });
+
+      expect(res.status).toBe(400);
     });
   });
 
@@ -158,6 +206,22 @@ describe("login route", () => {
       expect(res.status).toBe(200);
       expect(res.header).toHaveProperty("x-auth-header");
     });
+
+    it("checks if it returns 400 and returns a error message if invalid data", async () => {
+      const res = await request(server)
+        .post("/user/login")
+        .send({ ...nameInsideMobileNo, userName: "" });
+
+      expect(res.status).toBe(400);
+    });
+
+    it("checks if it returns 400 and returns a error message if user does not exist", async () => {
+      const res = await request(server)
+        .post("/user/login")
+        .send({ ...nameInsideMobileNo, userName: "eg" });
+
+      expect(res.status).toBe(400);
+    });
   });
   const nameInsideEmail = {
     userName: "_test__",
@@ -179,6 +243,14 @@ describe("login route", () => {
 
       expect(res.status).toBe(200);
       expect(res.header).toHaveProperty("x-auth-header");
+    });
+
+    it("checks if it returns 400 and returns a error message if invalid password", async () => {
+      const res = await request(server)
+        .post("/user/login")
+        .send({ ...nameInsideEmail, password: "abc@1234" });
+
+      expect(res.status).toBe(400);
     });
   });
 });
