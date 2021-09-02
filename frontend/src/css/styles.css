@@ -1,3 +1,46 @@
 body {
   margin: 8px;
 }
+
+.inputField {
+  position: relative;
+  height: 34px;
+  border: 1px solid #e6e6e6;
+  width: 221.5px;
+  margin-right: 10px;
+}
+
+input[type="text"] {
+  height: 32px;
+  width: 207.5px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border: none;
+  outline: 0;
+  background-color: whitesmoke;
+}
+
+.inputField span {
+  position: relative;
+  top: -26px;
+  right: -9px;
+  color: #919396;
+  font-size: 16px;
+}
+
+.inputField:focus-within {
+  border: 1px solid #919396;
+}
+
+input[type="text"]:valid {
+  position: relative;
+  top: 13px;
+  height: 18px;
+}
+
+input[type="text"]:valid + span {
+  position: relative;
+  top: -22px;
+  right: -7px;
+  font-size: 13px;
+}
