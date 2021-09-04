@@ -8,6 +8,7 @@ body {
   border: 1px solid #e6e6e6;
   width: 221.5px;
   margin-right: 10px;
+  background-color: whitesmoke;
 }
 
 input[type="text"] {
@@ -20,7 +21,18 @@ input[type="text"] {
   background-color: whitesmoke;
 }
 
-.inputField span {
+input[type="password"] {
+  height: 32px;
+  width: 165.5px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border: none;
+  outline: 0;
+  background-color: whitesmoke;
+}
+
+.nameSpan {
+  visibility: hidden;
   position: relative;
   top: -26px;
   right: -9px;
@@ -28,17 +40,45 @@ input[type="text"] {
   font-size: 16px;
 }
 
+.passwordSpan {
+  visibility: hidden;
+  position: relative;
+  top: -29px;
+  right: -9px;
+  color: #919396;
+  font-size: 16px;
+}
+
+.inputField button {
+  visibility: hidden;
+  position: relative;
+  top: -13px;
+  left: 123px;
+  background-color: whitesmoke;
+}
+
 .inputField:focus-within {
   border: 1px solid #919396;
 }
 
-input[type="text"]:valid {
+input[type="text"]:valid,
+input[type="password"]:valid {
   position: relative;
   top: 13px;
   height: 18px;
 }
 
-input[type="text"]:valid + span {
+input[type="password"]:valid ~ button {
+  position: relative;
+  top: -13px;
+  left: 119px;
+  border: none;
+  visibility: visible;
+}
+
+input[type="text"]:valid + .nameSpan,
+input[type="password"]:valid + .passwordSpan {
+  visibility: visible;
   position: relative;
   top: -22px;
   right: -7px;
