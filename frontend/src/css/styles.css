@@ -1,3 +1,7 @@
+body {
+  margin: 8px;
+} /*delete this when building the layout with all the compoenents */
+
 .backgroundLayer {
   position: relative;
   background-color: #fafafa;
@@ -65,6 +69,83 @@ button:disabled {
   border: 1px solid #e6e6e6;
   width: 221.5px;
   background-color: #fafafa;
+}
+
+.iconContainerLogin {
+  background: rgb(56, 81, 133);
+  background: linear-gradient(
+    90deg,
+    rgba(56, 81, 133, 1) 40%,
+    rgba(255, 255, 255, 1) 40%
+  );
+  position: relative;
+
+  height: 17px;
+  width: 17px;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.fbIconLogin {
+  position: relative;
+  bottom: 3px;
+  font-size: 23px;
+  color: #385185;
+}
+
+.iconContainerSignUp {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 29%,
+    rgba(0, 149, 246, 1) 32%
+  );
+  position: relative;
+  height: 17px;
+  width: 17px;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.fbIconSignUp {
+  position: relative;
+  bottom: 3px;
+  font-size: 23px;
+  color: white;
+}
+
+.loginButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 4px;
+  border: none;
+  color: #385185;
+  cursor: pointer;
+  font-size: medium;
+  font-weight: bold;
+  height: 30px;
+  width: 224px;
+}
+
+.signUpButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #0095f6;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: medium;
+  font-weight: bold;
+  height: 30px;
+  width: 224px;
 }
 
 input[type="text"] {
