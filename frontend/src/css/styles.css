@@ -1,5 +1,39 @@
-body {
-  margin: 8px;
+.backgroundLayer {
+  position: relative;
+  background-color: #fafafa;
+  height: 104vh;
+  margin: 0px;
+  z-index: 0;
+}
+
+.loginBox {
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  width: 350px;
+  height: 370px;
+}
+
+.switchAuthMethodBox {
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  width: 350px;
+  height: 55px;
+}
+
+.signUpBox {
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  width: 350px;
+  height: 525px;
 }
 
 button:disabled {
@@ -30,7 +64,7 @@ button:disabled {
   height: 34px;
   border: 1px solid #e6e6e6;
   width: 221.5px;
-  background-color: whitesmoke;
+  background-color: #fafafa;
 }
 
 input[type="text"] {
@@ -41,7 +75,7 @@ input[type="text"] {
   padding-right: 7px;
   border: none;
   outline: 0;
-  background-color: whitesmoke;
+  background-color: #fafafa;
 }
 
 input[type="password"] {
@@ -52,7 +86,7 @@ input[type="password"] {
   padding-right: 7px;
   border: none;
   outline: 0;
-  background-color: whitesmoke;
+  background-color: #fafafa;
 }
 
 .nameSpan {
@@ -78,7 +112,7 @@ input[type="password"] {
   position: relative;
   top: -13px;
   left: 123px;
-  background-color: whitesmoke;
+  background-color: #fafafa;
 }
 
 .inputField:focus-within {
@@ -107,4 +141,16 @@ input[type="password"]:valid + .passwordSpan {
   top: -22px;
   right: -7px;
   font-size: 13px;
+}
+
+@media screen and (max-width: 450px) {
+  .loginBox {
+    visibility: hidden;
+  }
+  .switchAuthMethodBox {
+    visibility: hidden;
+  }
+  .signUpBox {
+    visibility: hidden;
+  }
 }
