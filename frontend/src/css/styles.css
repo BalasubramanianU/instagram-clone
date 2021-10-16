@@ -116,6 +116,28 @@ button:disabled {
   color: white;
 }
 
+.forgotPassword {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: white;
+  width: 224px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.forgotPasswordText {
+  text-decoration: none;
+  font-size: small;
+  color: #86a4cb;
+}
+
+.forgotPasswordText:visited {
+  color: #54799c;
+}
+
 .loginButton {
   display: flex;
   justify-content: center;
@@ -132,6 +154,90 @@ button:disabled {
   width: 224px;
 }
 
+.orComponent {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 224px;
+}
+
+.lineStrike {
+  height: 1.5px;
+  width: 80px;
+  background-color: #dbdbdb;
+}
+
+.orText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #949ba4;
+  font-weight: bold;
+  height: 30px;
+  width: 64px;
+}
+
+.generalText {
+  color: #6a6a6a;
+  width: 224px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerText {
+  color: #929292;
+  font-weight: bold;
+  text-align: center;
+  width: 224px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.smallText {
+  width: 224px;
+  text-align: center;
+  text-decoration: none;
+  font-size: small;
+  color: #919396;
+}
+
+.signUp {
+  text-decoration: none;
+  font-weight: bold;
+  color: #0095f6;
+}
+
+.login {
+  text-decoration: none;
+  color: #0095f6;
+}
+
+.googlePlay {
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+  height: 40px;
+  width: 135px;
+  border-radius: 6px;
+  background-image: url("../assets/Google_Play_Store_badge_EN.svg");
+  background-repeat: no-repeat;
+}
+
+.appStore {
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+  height: 40px;
+  width: 135px;
+  border-radius: 6px;
+  background-image: url("../assets/Download_on_the_App_Store_Badge.svg");
+  background-repeat: no-repeat;
+}
+
 .signUpButton {
   display: flex;
   justify-content: center;
@@ -146,6 +252,20 @@ button:disabled {
   font-weight: bold;
   height: 30px;
   width: 224px;
+}
+
+.logo {
+  height: 61px;
+  width: 224px;
+  background: url("../assets/Instagram_logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 185px;
+}
+
+.appStoreImages {
+  height: 40px;
+  width: 275px;
 }
 
 input[type="text"] {
@@ -233,5 +353,11 @@ input[type="password"]:valid + .passwordSpan {
   }
   .signUpBox {
     visibility: hidden;
+  }
+  .loginButton {
+    background-color: #fafafa;
+  }
+  .forgotPassword {
+    background-color: #fafafa;
   }
 }
