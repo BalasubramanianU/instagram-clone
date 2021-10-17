@@ -3,19 +3,16 @@
   background-color: #fafafa;
   height: 104vh;
   margin: 0px;
-  z-index: 0;
 }
 
 .header {
-  height: 30px;
+  height: 32px;
 }
 
 .switchAuthMethodBox {
   box-sizing: border-box;
-  /* position: absolute; */
   position: relative;
   top: 0px;
-  z-index: -1;
   display: flex;
   justify-content: center;
   background-color: white;
@@ -51,7 +48,7 @@ button:disabled {
   font-size: medium;
   font-weight: bold;
   height: 30px;
-  width: 224px;
+  width: 269px;
 }
 
 .buttonContainer {
@@ -63,7 +60,7 @@ button:disabled {
   border-radius: 4px;
   height: 34px;
   border: 1px solid #e6e6e6;
-  width: 221.5px;
+  width: 267px;
   background-color: #fafafa;
 }
 
@@ -119,7 +116,7 @@ button:disabled {
   align-items: center;
   box-sizing: border-box;
   background-color: white;
-  width: 224px;
+  width: 267px;
   height: 15px;
   cursor: pointer;
 }
@@ -199,7 +196,7 @@ button:disabled {
   font-size: medium;
   font-weight: bold;
   height: 30px;
-  width: 224px;
+  width: 267px;
 }
 
 .orComponent {
@@ -208,12 +205,12 @@ button:disabled {
   align-items: center;
   justify-content: center;
   height: 30px;
-  width: 224px;
+  width: 267px;
 }
 
 .lineStrike {
   height: 1.5px;
-  width: 80px;
+  width: 103px;
   background-color: #dbdbdb;
 }
 
@@ -229,7 +226,7 @@ button:disabled {
 
 .generalText {
   color: #6a6a6a;
-  width: 224px;
+  width: 267px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -329,17 +326,15 @@ button:disabled {
 .welcomeImage {
   background: url("../assets/43cc71bb1b43.png");
   background-repeat: no-repeat;
-  /* background-color: red; */
-  width: 410px; /*370*/
-  height: 600px; /*585*/
+  width: 410px;
+  height: 600px;
   grid-column: 1;
 }
 
 .loginBox {
   box-sizing: border-box;
-  position: relative; /*absolute previously*/
-  top: 35px;
-  z-index: -1;
+  position: relative;
+  top: 33px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -347,7 +342,6 @@ button:disabled {
   background-color: white;
   border: 1px solid #e6e6e6;
   width: 350px;
-  /* height: 370px; */
   height: 390px;
   grid-row: 1;
   grid-column: 2;
@@ -357,15 +351,16 @@ button:disabled {
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: 433px 60px 90px;
-  column-gap: 28px;
+  column-gap: 30px;
   justify-content: center;
+  margin-right: 35px;
   height: 96vh;
 }
 
 input[type="text"] {
   border-radius: 4px;
   height: 32px;
-  width: 207.5px;
+  width: 253px;
   padding-left: 7px;
   padding-right: 7px;
   border: none;
@@ -376,7 +371,7 @@ input[type="text"] {
 input[type="password"] {
   border-radius: 4px;
   height: 32px;
-  width: 165.5px;
+  width: 211px;
   padding-left: 7px;
   padding-right: 7px;
   border: none;
@@ -424,7 +419,7 @@ input[type="password"]:valid {
 input[type="password"]:valid ~ button {
   position: relative;
   top: -13px;
-  left: 119px;
+  left: 164px;
   border: none;
   visibility: visible;
 }
