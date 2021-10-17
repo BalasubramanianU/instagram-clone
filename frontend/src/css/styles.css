@@ -138,6 +138,44 @@ button:disabled {
   color: #54799c;
 }
 
+.footer {
+  height: 100px;
+  width: 630px;
+}
+
+.footerText {
+  height: 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: small;
+  color: #919396;
+}
+
+.footerDropdown {
+  border: none;
+  background-color: #fafafa;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-size: small;
+  color: #919396;
+  margin-right: 15px;
+}
+
+.footerFirstRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footerSecondRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .loginButton {
   display: flex;
   justify-content: center;
@@ -268,6 +306,25 @@ button:disabled {
   width: 275px;
 }
 
+.screenshot {
+  position: relative;
+  top: 100px;
+  left: 150px;
+  background: url("../assets/d6bf0c928b5a.jpg");
+  background-repeat: no-repeat;
+  width: 245px;
+  height: 432px;
+}
+
+.welcomeImage {
+  position: relative;
+  background: url("../assets/43cc71bb1b43.png");
+  background-repeat: no-repeat;
+  /* background-color: red; */
+  width: 410px; /*370*/
+  height: 600px; /*585*/
+}
+
 input[type="text"] {
   border-radius: 4px;
   height: 32px;
@@ -344,7 +401,31 @@ input[type="password"]:valid + .passwordSpan {
   font-size: 13px;
 }
 
-@media screen and (max-width: 450px) {
+@media only screen and (max-width: 650px) {
+  .footer {
+    width: 530px;
+  }
+  .footerText {
+    width: 77px;
+  }
+  .footerFirstRow {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .footer {
+    width: 430px;
+  }
+  .footerText {
+    width: 77px;
+  }
+  .footerFirstRow {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 450px) {
   .loginBox {
     visibility: hidden;
   }
@@ -359,5 +440,14 @@ input[type="password"]:valid + .passwordSpan {
   }
   .forgotPassword {
     background-color: #fafafa;
+  }
+  .footer {
+    width: 330px;
+  }
+  .footerText {
+    width: 77px;
+  }
+  .footerFirstRow {
+    justify-content: center;
   }
 }
