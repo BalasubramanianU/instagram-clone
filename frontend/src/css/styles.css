@@ -131,6 +131,17 @@ button:disabled {
   color: #54799c;
 }
 
+.errorMessage {
+  text-align: center;
+  color: #ef5d64;
+  font-size: 15px;
+  width: 267px;
+}
+
+.errorMessageHidden {
+  display: none;
+}
+
 .appStoreContainer {
   box-sizing: border-box;
   display: flex;
@@ -431,6 +442,28 @@ input[type="password"]:valid + .passwordSpan {
   top: -22px;
   right: -7px;
   font-size: 13px;
+}
+
+@media only screen and (max-width: 870px) {
+  .header {
+    height: 10px;
+  }
+  .welcomeImage {
+    display: none;
+  }
+  .gridContainer {
+    grid-template-columns: auto;
+    height: 93vh;
+  }
+  .loginBox {
+    grid-column: 1;
+  }
+  .appStoreContainer {
+    grid-column: 1;
+  }
+  .switchAuthMethodBox {
+    grid-column: 1;
+  }
 }
 
 @media only screen and (max-width: 650px) {
