@@ -1,6 +1,8 @@
 .backgroundLayer {
   position: relative;
   background-color: #fafafa;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
   height: 104vh;
   margin: 0px;
 }
@@ -279,17 +281,19 @@ button:disabled {
   color: #929292;
   font-weight: bold;
   text-align: center;
-  width: 224px;
+  width: 267px;
+  font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .smallText {
-  width: 224px;
+  width: 267px;
   text-align: center;
   text-decoration: none;
-  font-size: small;
+  font-size: 12px;
+  letter-spacing: 0.3px;
   color: #919396;
 }
 
@@ -297,10 +301,13 @@ button:disabled {
   text-decoration: none;
   font-weight: bold;
   color: #0095f6;
+  letter-spacing: 0.1px;
 }
 
 .login {
   text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.2px;
   color: #0095f6;
 }
 
@@ -339,7 +346,7 @@ button:disabled {
   font-size: medium;
   font-weight: bold;
   height: 30px;
-  width: 224px;
+  width: 267px;
 }
 
 .logo {
@@ -403,10 +410,15 @@ button:disabled {
 .gridContainerSignUp {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 560px 73px auto;
+  grid-template-rows: 560px 70px auto;
   justify-content: center;
   margin-right: 35px;
   height: 109vh;
+}
+
+input::-webkit-input-placeholder {
+  font-size: 11px;
+  letter-spacing: 0.4px;
 }
 
 input[type="text"] {
@@ -423,7 +435,7 @@ input[type="text"] {
 input[type="password"] {
   border-radius: 4px;
   height: 32px;
-  width: 211px;
+  width: 215px;
   padding-left: 7px;
   padding-right: 7px;
   border: none;
@@ -454,6 +466,7 @@ input[type="password"] {
   position: relative;
   top: -13px;
   left: 123px;
+  font-size: small;
   background-color: #fafafa;
 }
 
@@ -470,8 +483,8 @@ input[type="password"]:valid {
 
 input[type="password"]:valid ~ button {
   position: relative;
-  top: -13px;
-  left: 164px;
+  top: -12px;
+  left: 173px;
   border: none;
   visibility: visible;
 }
@@ -482,7 +495,8 @@ input[type="password"]:valid + .passwordSpan {
   position: relative;
   top: -22px;
   right: -7px;
-  font-size: 13px;
+  font-size: x-small;
+  letter-spacing: 0.2px;
 }
 
 @media only screen and (max-width: 870px) {
@@ -532,19 +546,22 @@ input[type="password"]:valid + .passwordSpan {
 }
 
 @media only screen and (max-width: 450px) {
-  /* TODO:- Implement the vansihing white box in small screens */
-  /* .loginBox {
-    visibility: hidden;
+  .loginBox {
+    background-color: #fafafa;
+    border: none;
   }
   .switchAuthMethodBox {
-    visibility: hidden;
+    background-color: #fafafa;
+    border: none;
   }
   .switchAuthMethodBoxSignUp {
-    visibility: hidden;
+    background-color: #fafafa;
+    border: none;
   }
   .signUpBox {
-    visibility: hidden;
-  } */
+    background-color: #fafafa;
+    border: none;
+  }
   .loginButton {
     background-color: #fafafa;
   }
