@@ -97,7 +97,6 @@ button:disabled {
     rgba(255, 255, 255, 1) 40%
   );
   position: relative;
-
   height: 17px;
   width: 17px;
   overflow: hidden;
@@ -302,6 +301,7 @@ button:disabled {
   font-weight: bold;
   color: #0095f6;
   letter-spacing: 0.1px;
+  margin-left: 5px;
 }
 
 .login {
@@ -309,6 +309,7 @@ button:disabled {
   font-weight: bold;
   letter-spacing: 0.2px;
   color: #0095f6;
+  margin-left: 5px;
 }
 
 .googlePlay {
@@ -317,6 +318,7 @@ button:disabled {
   display: inline-block;
   height: 40px;
   width: 135px;
+  margin-right: 5px;
   border-radius: 6px;
   background-image: url("../assets/Google_Play_Store_badge_EN.svg");
   background-repeat: no-repeat;
