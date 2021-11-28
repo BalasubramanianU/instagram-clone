@@ -1,8 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/styles.css";
 import { Link } from "react-router-dom";
 
 const LogInPage = () => {
+  const [formData, setFormData] = useState({ logInId: "", password: "" });
+  const [isValid, setIsValid] = useState(false);
+  const [passwordField, setPasswordField] = useState({
+    inputType: "password",
+    button: "Show",
+  });
+
+  useEffect(() => {
+    if (formData.logInId.length > 0 && formData.password.length > 5) {
+      return setIsValid(true);
+    }
+    setIsValid(false);
+  }, [formData]);
+
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const passwordButtonClick = () => {
+    passwordField.button === "Show"
+      ? setPasswordField({ inputType: "text", button: "Hide" })
+      : setPasswordField({ inputType: "password", button: "Show" });
+  };
+
+  const handleSubmit = () => {
+    console.log(formData);
+    // TODO: to be continued...
+    // const requestOptions = {
+    //   method: "POST",
+    //   headers: {
+    //     // "Access-Control-Allow-Origin": "*",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     userName: formData.logInId,
+    //     password: formData.password,
+    //   }),
+    // };
+    // fetch("http://locahost:5000/user/login", requestOptions).then(
+    //   (res) => console.log(res.json()),
+    //   (error) => console.log(error)
+    // );
+  };
+
   return (
     <div className="backgroundLayer">
       <div className="header"></div>
@@ -15,26 +59,38 @@ const LogInPage = () => {
           <div className="inputField">
             <input
               type="text"
-              minlength="1"
-              maxlength="255"
+              minLength="1"
+              maxLength="255"
               placeholder="Phone number, username, or email"
               required
+              name="logInId"
+              value={formData.logInId}
+              onChange={handleChange}
             />
             <span className="nameSpan">Phone number, username, or email</span>
           </div>
           <div className="inputField">
             <input
-              type="password"
-              minlength="1"
-              maxlength="1024"
+              type={passwordField.inputType}
+              minLength="1"
+              maxLength="1024"
               placeholder="Password"
               required
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
             />
             <span className="passwordSpan">Password</span>
-            <button>Show</button>
+            <button onClick={passwordButtonClick}>
+              {passwordField.button}
+            </button>
           </div>
           <div className="buttonContainer">
-            <button className="button" disabled>
+            <button
+              className="button"
+              onClick={handleSubmit}
+              disabled={!isValid}
+            >
               Log In
             </button>
           </div>

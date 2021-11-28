@@ -7,8 +7,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {["/", "/login"].map((path) => (
-          <Route path={path} element={<LogInPage />} />
+        {["/", "/login"].map((path, index) => (
+          <Route key={index} path={path} element={<LogInPage />} />
         ))}
         <Route path="/signup" element={<SignUpPage />} />
       </Routes>

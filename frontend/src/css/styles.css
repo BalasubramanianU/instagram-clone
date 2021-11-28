@@ -483,16 +483,18 @@ input[type="password"]:valid {
   height: 18px;
 }
 
-input[type="password"]:valid ~ button {
+input[type="password"]:valid ~ button,
+input[type="text"]:valid ~ button {
   position: relative;
   top: -12px;
-  left: 173px;
+  left: 177px;
   border: none;
   visibility: visible;
 }
 
 input[type="text"]:valid + .nameSpan,
-input[type="password"]:valid + .passwordSpan {
+input[type="password"]:valid + .passwordSpan,
+input[type="text"]:valid + .passwordSpan {
   visibility: visible;
   position: relative;
   top: -22px;
