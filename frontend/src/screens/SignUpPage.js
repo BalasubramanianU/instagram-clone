@@ -38,22 +38,28 @@ const SignUpPage = () => {
   };
 
   const handleSubmit = () => {
-    console.log(formData);
     // TODO:to be continued...
-    // const requestOptions = {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({
-    //     email: formData.logInId,
-    //     fullName: formData.fullName,
-    //     userName: formData.userName,
-    //     password: formData.password,
-    //   }),
-    // };
-    // fetch("http://locahost:5000/user/signup", requestOptions).then(
-    //   (res) => console.log(res.json()),
-    //   (error) => console.log(error)
-    // );
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: formData.logInId,
+        fullName: formData.fullName,
+        userName: formData.userName,
+        password: formData.password,
+      }),
+    };
+    fetch("http://192.168.1.8:5000/user/signup", requestOptions)
+      .then((response) => {
+        if (response.ok) return response;
+        throw response;
+        //Note:-throw will make the response reach below (error) block,
+        // return will make the response reach below (data) block
+      })
+      .then(
+        (data) => console.log(data),
+        (error) => console.log(error)
+      );
   };
 
   return (
@@ -119,7 +125,7 @@ const SignUpPage = () => {
           </div>
           <div className="inputField">
             <input
-              type="password"
+              type={passwordField.inputType}
               minLength="1"
               maxLength="1024"
               placeholder="Password"

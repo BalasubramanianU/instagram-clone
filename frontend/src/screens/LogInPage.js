@@ -28,23 +28,28 @@ const LogInPage = () => {
   };
 
   const handleSubmit = () => {
-    console.log(formData);
     // TODO: to be continued...
-    // const requestOptions = {
-    //   method: "POST",
-    //   headers: {
-    //     // "Access-Control-Allow-Origin": "*",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     userName: formData.logInId,
-    //     password: formData.password,
-    //   }),
-    // };
-    // fetch("http://locahost:5000/user/login", requestOptions).then(
-    //   (res) => console.log(res.json()),
-    //   (error) => console.log(error)
-    // );
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userName: formData.logInId,
+        password: formData.password,
+      }),
+    };
+    fetch("http://192.168.1.8:5000/user/login", requestOptions)
+      .then((response) => {
+        if (response.ok) return response.json();
+        throw response;
+        //Note:-throw will make the response reach below (error) block,
+        // return will make the response reach below (data) block
+      })
+      .then(
+        (data) => console.log(data),
+        (error) => console.log(error)
+      );
   };
 
   return (
