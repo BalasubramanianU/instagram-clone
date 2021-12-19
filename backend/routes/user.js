@@ -54,7 +54,11 @@ router.post("/login", async (req, res) => {
   if (!validPassword) return res.status(400).send("Invalid password");
 
   const token = generateJwtToken(req.body);
-  res.status(200).header("x-auth-header", token).send(user);
+  res
+    .status(200)
+    .header("Access-Control-Expose-Headers", "x-auth-header")
+    .header("x-auth-header", token)
+    .send(user);
 });
 
 router.post("/signup", async (req, res) => {
@@ -83,7 +87,11 @@ router.post("/signup", async (req, res) => {
   } else return res.status(400).send("User name already exists");
 
   const token = generateJwtToken(req.body);
-  res.status(200).header("x-auth-header", token).send();
+  res
+    .status(200)
+    .header("Access-Control-Expose-Headers", "x-auth-header")
+    .header("x-auth-header", token)
+    .send();
 });
 
 module.exports = router;

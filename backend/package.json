@@ -10,7 +10,7 @@
     ]
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "test": "set NODE_ENV=test&&jest --watchAll --coverage --runInBand"
   },
   "author": "",
