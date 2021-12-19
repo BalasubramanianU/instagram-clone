@@ -25,6 +25,45 @@ const LogInPage = () => {
     setIsValid(false);
   }, [formData]);
 
+  useEffect(() => {
+    if (loginType) {
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          [loginType]: formData.logInId,
+          password: formData.password,
+        }),
+      };
+      const apiCall = async () => {
+        try {
+          const response = await fetch(
+            "http://192.168.1.8:5000/user/login",
+            requestOptions
+          );
+          if (response.ok) {
+            localStorage.token = response.headers.get("x-auth-header");
+            const data = await response.json();
+            return console.log(data);
+          }
+          const errorMessage = await response.text();
+          if (errorMessage.includes("User does not exist"))
+            setError({ userName: true });
+          if (errorMessage.includes("Invalid password"))
+            setError({ password: true });
+        } catch (error) {
+          // all the errors in the try block will accumulate here, you need to
+          // write logic here if you want to handle connection failed and other
+          // exceptions/errors seperately.
+          console.log(error);
+        }
+      };
+      apiCall();
+    }
+  }, [loginType]);
+
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
@@ -36,7 +75,6 @@ const LogInPage = () => {
   };
 
   const handleSubmit = () => {
-    // TODO: to be continued...
     if (validatePassword(formData.password).error) {
       setLoginType("");
       return setError({ password: true });
@@ -50,40 +88,6 @@ const LogInPage = () => {
       return setError({ userName: true });
     }
     setError({});
-
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        [loginType]: formData.logInId,
-        password: formData.password,
-      }),
-    };
-    const apiCall = async () => {
-      try {
-        const response = await fetch(
-          "http://192.168.1.8:5000/user/login",
-          requestOptions
-        );
-        if (response.ok) {
-          const data = await response.json();
-          return console.log(data);
-        }
-        const errorMessage = await response.text();
-        if (errorMessage.includes("User does not exist"))
-          setError({ userName: true });
-        if (errorMessage.includes("Invalid password"))
-          setError({ password: true });
-      } catch (error) {
-        // all the errors in the try block will accumulate here, you need to
-        // write logic here if you want to handle connection failed and other
-        // exceptions/errors seperately.
-        console.log(error);
-      }
-    };
-    apiCall();
   };
 
   return (
