@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../css/styles.css";
 import { Link } from "react-router-dom";
+import {
+  validateEmail,
+  validateName,
+  validateNumber,
+  validatePassword,
+} from "../utils/userValidation";
 
 const LogInPage = () => {
   const [formData, setFormData] = useState({ logInId: "", password: "" });
@@ -9,6 +15,8 @@ const LogInPage = () => {
     inputType: "password",
     button: "Show",
   });
+  const [loginType, setLoginType] = useState("");
+  const [error, setError] = useState({});
 
   useEffect(() => {
     if (formData.logInId.length > 0 && formData.password.length > 5) {
@@ -29,27 +37,53 @@ const LogInPage = () => {
 
   const handleSubmit = () => {
     // TODO: to be continued...
+    if (validatePassword(formData.password).error) {
+      setLoginType("");
+      return setError({ password: true });
+    }
+    if (!validateEmail(formData.logInId).error) setLoginType("email");
+    else if (!validateNumber(formData.logInId).error)
+      setLoginType("mobileNumber");
+    else if (!validateName(formData.logInId).error) setLoginType("userName");
+    else {
+      setLoginType("");
+      return setError({ userName: true });
+    }
+    setError({});
+
     const requestOptions = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userName: formData.logInId,
+        [loginType]: formData.logInId,
         password: formData.password,
       }),
     };
-    fetch("http://192.168.1.8:5000/user/login", requestOptions)
-      .then((response) => {
-        if (response.ok) return response.json();
-        throw response;
-        //Note:-throw will make the response reach below (error) block,
-        // return will make the response reach below (data) block
-      })
-      .then(
-        (data) => console.log(data),
-        (error) => console.log(error)
-      );
+    const apiCall = async () => {
+      try {
+        const response = await fetch(
+          "http://192.168.1.8:5000/user/login",
+          requestOptions
+        );
+        if (response.ok) {
+          const data = await response.json();
+          return console.log(data);
+        }
+        const errorMessage = await response.text();
+        if (errorMessage.includes("User does not exist"))
+          setError({ userName: true });
+        if (errorMessage.includes("Invalid password"))
+          setError({ password: true });
+      } catch (error) {
+        // all the errors in the try block will accumulate here, you need to
+        // write logic here if you want to handle connection failed and other
+        // exceptions/errors seperately.
+        console.log(error);
+      }
+    };
+    apiCall();
   };
 
   return (
@@ -112,10 +146,18 @@ const LogInPage = () => {
             </div>
             Log in with Facebook
           </button>
-          <span className="errorMessageHidden">
-            Sorry, your password was incorrect. Please double-check your
-            password.
-          </span>
+          {error.userName && (
+            <span className="errorMessage">
+              The username you entered doesn't belong to an account. Please
+              check your username and try again.
+            </span>
+          )}
+          {error.password && (
+            <span className="errorMessage">
+              Sorry, your password was incorrect. Please double-check your
+              password.
+            </span>
+          )}
           <button className="forgotPassword">
             <a className="forgotPasswordText" href>
               Forgot password?

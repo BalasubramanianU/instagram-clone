@@ -162,10 +162,6 @@ button:disabled {
   width: 267px;
 }
 
-.errorMessageHidden {
-  display: none;
-}
-
 .appStoreContainer {
   box-sizing: border-box;
   display: flex;
