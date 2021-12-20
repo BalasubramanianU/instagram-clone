@@ -15,7 +15,7 @@ const LogInPage = () => {
     inputType: "password",
     button: "Show",
   });
-  const [loginType, setLoginType] = useState("");
+  // const [loginType, setLoginType] = useState("");
   const [error, setError] = useState({});
 
   useEffect(() => {
@@ -24,45 +24,6 @@ const LogInPage = () => {
     }
     setIsValid(false);
   }, [formData]);
-
-  useEffect(() => {
-    if (loginType) {
-      const requestOptions = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          [loginType]: formData.logInId,
-          password: formData.password,
-        }),
-      };
-      const apiCall = async () => {
-        try {
-          const response = await fetch(
-            "http://192.168.1.8:5000/user/login",
-            requestOptions
-          );
-          if (response.ok) {
-            localStorage.token = response.headers.get("x-auth-header");
-            const data = await response.json();
-            return console.log(data);
-          }
-          const errorMessage = await response.text();
-          if (errorMessage.includes("User does not exist"))
-            setError({ userName: true });
-          if (errorMessage.includes("Invalid password"))
-            setError({ password: true });
-        } catch (error) {
-          // all the errors in the try block will accumulate here, you need to
-          // write logic here if you want to handle connection failed and other
-          // exceptions/errors seperately.
-          console.log(error);
-        }
-      };
-      apiCall();
-    }
-  }, [loginType]);
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -74,17 +35,73 @@ const LogInPage = () => {
       : setPasswordField({ inputType: "password", button: "Show" });
   };
 
+  const check = async () => {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-auth-header": localStorage.getItem("token"),
+      },
+    };
+    try {
+      const response = await fetch(
+        "http://192.168.1.8:5000/home/",
+        requestOptions
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = () => {
+    const apiCall = async (loginType) => {
+      if (!loginType) return;
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          [loginType]: formData.logInId,
+          password: formData.password,
+        }),
+      };
+      try {
+        setIsValid(false);
+        const response = await fetch(
+          "http://192.168.1.8:5000/user/login",
+          requestOptions
+        );
+        if (response.ok) {
+          localStorage.token = response.headers.get("x-auth-header");
+          const data = await response.json();
+          setIsValid(true);
+          check();
+          return console.log(data);
+        }
+        const errorMessage = await response.text();
+        if (errorMessage.includes("User does not exist"))
+          setError({ userName: true });
+        if (errorMessage.includes("Invalid password"))
+          setError({ password: true });
+        setIsValid(true);
+        check();
+      } catch (error) {
+        // all the errors in the try block will accumulate here, you need to
+        // write logic here if you want to handle connection failed and other
+        // exceptions/errors seperately.
+        console.log(error);
+        setIsValid(true);
+      }
+    };
     if (validatePassword(formData.password).error) {
-      setLoginType("");
       return setError({ password: true });
     }
-    if (!validateEmail(formData.logInId).error) setLoginType("email");
-    else if (!validateNumber(formData.logInId).error)
-      setLoginType("mobileNumber");
-    else if (!validateName(formData.logInId).error) setLoginType("userName");
+    if (!validateEmail(formData.logInId).error) apiCall("email");
+    else if (!validateNumber(formData.logInId).error) apiCall("mobileNumber");
+    else if (!validateName(formData.logInId).error) apiCall("userName");
     else {
-      setLoginType("");
       return setError({ userName: true });
     }
     setError({});
