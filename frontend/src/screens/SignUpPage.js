@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../css/styles.css";
 import { Link } from "react-router-dom";
+import {
+  validateEmail,
+  validateName,
+  validateNumber,
+  validatePassword,
+} from "../utils/userValidation";
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +20,7 @@ const SignUpPage = () => {
     inputType: "password",
     button: "Show",
   });
+  const [error, setError] = useState({});
 
   useEffect(() => {
     if (
@@ -38,28 +45,57 @@ const SignUpPage = () => {
   };
 
   const handleSubmit = () => {
-    // TODO:to be continued...
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: formData.logInId,
-        fullName: formData.fullName,
-        userName: formData.userName,
-        password: formData.password,
-      }),
+    const apiCall = async (loginType) => {
+      if (!loginType) return;
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          [loginType]: formData.logInId,
+          fullName: formData.fullName,
+          userName: formData.userName,
+          password: formData.password,
+        }),
+      };
+      try {
+        setIsValid(false);
+        const response = await fetch(
+          "http://192.168.1.8:5000/user/signup",
+          requestOptions
+        );
+        if (response.ok) {
+          localStorage.token = response.headers.get("x-auth-header");
+          setIsValid(true);
+          return;
+        }
+        const errorMessage = await response.text();
+        if (errorMessage.includes("user already exists")) {
+          if (Number.isInteger(Number(formData.logInId)))
+            setError({ mobileNumber: true });
+          else setError({ email: true });
+        }
+        if (errorMessage.includes("User name already exists"))
+          setError({ userName: true });
+        setIsValid(true);
+      } catch (error) {
+        // all the errors in the try block will accumulate here, you need to
+        // write logic here if you want to handle connection failed and other
+        // exceptions/errors seperately.
+        console.log(error);
+        setIsValid(true);
+      }
     };
-    fetch("http://192.168.1.8:5000/user/signup", requestOptions)
-      .then((response) => {
-        if (response.ok) return response;
-        throw response;
-        //Note:-throw will make the response reach below (error) block,
-        // return will make the response reach below (data) block
-      })
-      .then(
-        (data) => console.log(data),
-        (error) => console.log(error)
-      );
+    if (validatePassword(formData.password).error)
+      return setError({ password: true });
+    if (validateName(formData.userName).error) return;
+    if (!validateEmail(formData.logInId).error) apiCall("email");
+    else if (!validateNumber(formData.logInId).error) apiCall("mobileNumber");
+    else {
+      if (Number.isInteger(Number(formData.logInId)))
+        return setError({ mobileNumber: true });
+      else return setError({ email: true });
+    }
+    setError({});
   };
 
   return (
@@ -148,10 +184,21 @@ const SignUpPage = () => {
               Sign up
             </button>
           </div>
-          <span className="errorMessageHidden">
-            Sorry, your password was incorrect. Please double-check your
-            password.
-          </span>
+          {error.email && (
+            <span className="errorMessage">Enter a valid email address.</span>
+          )}
+          {error.mobileNumber && (
+            <span className="errorMessage">
+              Looks like your phone number may be incorrect. Please try entering
+              your full number, including the country code.
+            </span>
+          )}
+          {error.userName && (
+            <span className="errorMessage">
+              This username isn't available. Please try another.
+            </span>
+          )}
+
           <p className="smallText">
             By signing up, you agree to our <b>Terms , Data Policy </b>and
             <b>Cookies Policy .</b>

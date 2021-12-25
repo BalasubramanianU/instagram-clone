@@ -15,7 +15,6 @@ const LogInPage = () => {
     inputType: "password",
     button: "Show",
   });
-  // const [loginType, setLoginType] = useState("");
   const [error, setError] = useState({});
 
   useEffect(() => {
@@ -23,6 +22,7 @@ const LogInPage = () => {
       return setIsValid(true);
     }
     setIsValid(false);
+    console.log(formData);
   }, [formData]);
 
   const handleChange = (event) => {
@@ -98,6 +98,13 @@ const LogInPage = () => {
     if (validatePassword(formData.password).error) {
       return setError({ password: true });
     }
+    console.log(
+      "reached",
+      formData,
+      "------",
+      error,
+      validateNumber(formData.logInId).error
+    );
     if (!validateEmail(formData.logInId).error) apiCall("email");
     else if (!validateNumber(formData.logInId).error) apiCall("mobileNumber");
     else if (!validateName(formData.logInId).error) apiCall("userName");
@@ -150,6 +157,7 @@ const LogInPage = () => {
               className="button"
               onClick={handleSubmit}
               disabled={!isValid}
+              testId="loginButton"
             >
               Log In
             </button>
