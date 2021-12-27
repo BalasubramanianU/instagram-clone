@@ -22,7 +22,6 @@ const LogInPage = () => {
       return setIsValid(true);
     }
     setIsValid(false);
-    console.log(formData);
   }, [formData]);
 
   const handleChange = (event) => {
@@ -35,24 +34,24 @@ const LogInPage = () => {
       : setPasswordField({ inputType: "password", button: "Show" });
   };
 
-  const check = async () => {
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-auth-header": localStorage.getItem("token"),
-      },
-    };
-    try {
-      const response = await fetch(
-        "http://192.168.1.8:5000/home/",
-        requestOptions
-      );
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const check = async () => {
+  //   const requestOptions = {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "x-auth-header": localStorage.getItem("token"),
+  //     },
+  //   };
+  //   try {
+  //     const response = await fetch(
+  //       "http://192.168.1.8:5000/home/",
+  //       requestOptions
+  //     );
+  //     console.log(response);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const handleSubmit = () => {
     const apiCall = async (loginType) => {
@@ -77,7 +76,7 @@ const LogInPage = () => {
           localStorage.token = response.headers.get("x-auth-header");
           const data = await response.json();
           setIsValid(true);
-          check();
+          // check();
           return console.log(data);
         }
         const errorMessage = await response.text();
@@ -86,7 +85,7 @@ const LogInPage = () => {
         if (errorMessage.includes("Invalid password"))
           setError({ password: true });
         setIsValid(true);
-        check();
+        // check();
       } catch (error) {
         // all the errors in the try block will accumulate here, you need to
         // write logic here if you want to handle connection failed and other
@@ -98,13 +97,6 @@ const LogInPage = () => {
     if (validatePassword(formData.password).error) {
       return setError({ password: true });
     }
-    console.log(
-      "reached",
-      formData,
-      "------",
-      error,
-      validateNumber(formData.logInId).error
-    );
     if (!validateEmail(formData.logInId).error) apiCall("email");
     else if (!validateNumber(formData.logInId).error) apiCall("mobileNumber");
     else if (!validateName(formData.logInId).error) apiCall("userName");
