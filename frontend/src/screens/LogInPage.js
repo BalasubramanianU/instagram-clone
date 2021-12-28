@@ -140,7 +140,7 @@ const LogInPage = () => {
               onChange={handleChange}
             />
             <span className="passwordSpan">Password</span>
-            <button onClick={passwordButtonClick}>
+            <button onClick={passwordButtonClick} testId="passwordButton">
               {passwordField.button}
             </button>
           </div>
