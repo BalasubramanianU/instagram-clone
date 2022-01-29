@@ -85,8 +85,7 @@ const SignUpPage = () => {
         setIsValid(true);
       }
     };
-    if (validatePassword(formData.password).error)
-      return setError({ password: true });
+    if (validatePassword(formData.password).error) return;
     if (validateName(formData.userName).error) return;
     if (!validateEmail(formData.logInId).error) apiCall("email");
     else if (!validateNumber(formData.logInId).error) apiCall("mobileNumber");
@@ -171,7 +170,7 @@ const SignUpPage = () => {
               onChange={handleChange}
             />
             <span className="passwordSpan">Password</span>
-            <button onClick={passwordButtonClick}>
+            <button onClick={passwordButtonClick} testId="passwordButton">
               {passwordField.button}
             </button>
           </div>
@@ -180,6 +179,7 @@ const SignUpPage = () => {
               className="button"
               onClick={handleSubmit}
               disabled={!isValid}
+              testId="signupButton"
             >
               Sign up
             </button>

@@ -19,7 +19,9 @@ describe("input and button scenarios", () => {
 
   it("should change the input field type if show button is clicked on password field", () => {
     element = instance.findByProps({ testId: "passwordButton" });
-    element.props.onClick();
+    act(() => {
+      element.props.onClick();
+    });
     element = instance.findByProps({ name: "password" });
 
     expect(element.props.type).toBe("text");
@@ -27,7 +29,9 @@ describe("input and button scenarios", () => {
 
   it("should change the input field type if hide button is clicked on password field", () => {
     element = instance.findByProps({ testId: "passwordButton" });
-    element.props.onClick();
+    act(() => {
+      element.props.onClick();
+    });
     element = instance.findByProps({ name: "password" });
 
     expect(element.props.type).toBe("password");
