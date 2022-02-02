@@ -1,0 +1,580 @@
+.backgroundLayer {
+  position: relative;
+  background-color: #fafafa;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  height: 104vh;
+  margin: 0px;
+}
+
+.header {
+  height: 32px;
+}
+
+.headerSignUp {
+  height: 32px;
+}
+
+.switchAuthMethodBox {
+  box-sizing: border-box;
+  position: relative;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  width: 350px;
+  height: 55px;
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.switchAuthMethodBoxSignUp {
+  box-sizing: border-box;
+  position: relative;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  width: 350px;
+  height: 70px;
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.signUpBox {
+  box-sizing: border-box;
+  position: relative;
+  top: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  width: 350px;
+  height: 545px;
+  grid-column: 1;
+}
+
+button:disabled {
+  background-color: #b2dffc;
+  color: #fdfbfe;
+  cursor: unset;
+}
+
+.button {
+  background-color: #0095f6;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: medium;
+  font-weight: bold;
+  height: 30px;
+  width: 269px;
+}
+
+.buttonContainer {
+  display: inline-block;
+}
+
+.inputField {
+  position: relative;
+  border-radius: 4px;
+  height: 34px;
+  border: 1px solid #e6e6e6;
+  width: 267px;
+  background-color: #fafafa;
+}
+
+.iconContainerLogin {
+  background: rgb(56, 81, 133);
+  background: linear-gradient(
+    90deg,
+    rgba(56, 81, 133, 1) 40%,
+    rgba(255, 255, 255, 1) 40%
+  );
+  position: relative;
+  height: 17px;
+  width: 17px;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.fbIconLogin {
+  position: relative;
+  bottom: 3px;
+  font-size: 23px;
+  color: #385185;
+}
+
+.iconContainerSignUp {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 29%,
+    rgba(0, 149, 246, 1) 32%
+  );
+  position: relative;
+  height: 17px;
+  width: 17px;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.fbIconSignUp {
+  position: relative;
+  bottom: 3px;
+  font-size: 23px;
+  color: white;
+}
+
+.forgotPassword {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: white;
+  width: 267px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.forgotPasswordText {
+  text-decoration: none;
+  font-size: small;
+  color: #86a4cb;
+}
+
+.forgotPasswordText:visited {
+  color: #54799c;
+}
+
+.errorMessage {
+  text-align: center;
+  color: #ef5d64;
+  font-size: 15px;
+  width: 267px;
+}
+
+.appStoreContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.appStoreContainerSignUp {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.footer {
+  height: 100px;
+  width: 630px;
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.footerText {
+  height: 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: small;
+  color: #919396;
+}
+
+.footerDropdown {
+  border: none;
+  background-color: #fafafa;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-size: small;
+  color: #919396;
+  margin-right: 15px;
+}
+
+.footerFirstRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footerSecondRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.loginButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 4px;
+  border: none;
+  color: #385185;
+  cursor: pointer;
+  font-size: medium;
+  font-weight: bold;
+  height: 30px;
+  width: 267px;
+}
+
+.orComponent {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 267px;
+}
+
+.lineStrike {
+  height: 1.5px;
+  width: 103px;
+  background-color: #dbdbdb;
+}
+
+.orText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #949ba4;
+  font-weight: bold;
+  height: 30px;
+  width: 64px;
+}
+
+.generalText {
+  color: #6a6a6a;
+  width: 267px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerText {
+  color: #929292;
+  font-weight: bold;
+  text-align: center;
+  width: 267px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.smallText {
+  width: 267px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: #919396;
+}
+
+.signUp {
+  text-decoration: none;
+  font-weight: bold;
+  color: #0095f6;
+  letter-spacing: 0.1px;
+  margin-left: 5px;
+}
+
+.login {
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  color: #0095f6;
+  margin-left: 5px;
+}
+
+.googlePlay {
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+  height: 40px;
+  width: 135px;
+  margin-right: 5px;
+  border-radius: 6px;
+  background-image: url("../assets/Google_Play_Store_badge_EN.svg");
+  background-repeat: no-repeat;
+}
+
+.appStore {
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+  height: 40px;
+  width: 135px;
+  border-radius: 6px;
+  background-image: url("../assets/Download_on_the_App_Store_Badge.svg");
+  background-repeat: no-repeat;
+}
+
+.signUpButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #0095f6;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: medium;
+  font-weight: bold;
+  height: 30px;
+  width: 267px;
+}
+
+.logo {
+  height: 61px;
+  width: 267px;
+  background: url("../assets/Instagram_logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 185px;
+}
+
+.appStoreImages {
+  height: 40px;
+  width: 275px;
+}
+
+.screenshot {
+  position: relative;
+  top: 100px;
+  left: 150px;
+  background: url("../assets/d6bf0c928b5a.jpg");
+  background-repeat: no-repeat;
+  width: 245px;
+  height: 432px;
+}
+
+.welcomeImage {
+  background: url("../assets/43cc71bb1b43.png");
+  background-repeat: no-repeat;
+  width: 410px;
+  height: 600px;
+  grid-column: 1;
+}
+
+.loginBox {
+  box-sizing: border-box;
+  position: relative;
+  top: 33px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  width: 350px;
+  height: 390px;
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 433px 60px 90px;
+  column-gap: 30px;
+  justify-content: center;
+  margin-right: 35px;
+  height: 96vh;
+}
+
+.gridContainerSignUp {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 560px 70px auto;
+  justify-content: center;
+  margin-right: 35px;
+  height: 109vh;
+}
+
+input::-webkit-input-placeholder {
+  font-size: 11px;
+  letter-spacing: 0.4px;
+}
+
+input[type="text"] {
+  border-radius: 4px;
+  height: 32px;
+  width: 253px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border: none;
+  outline: 0;
+  background-color: #fafafa;
+}
+
+input[type="password"] {
+  border-radius: 4px;
+  height: 32px;
+  width: 215px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border: none;
+  outline: 0;
+  background-color: #fafafa;
+}
+
+.nameSpan {
+  visibility: hidden;
+  position: relative;
+  top: -26px;
+  right: -9px;
+  color: #919396;
+  font-size: 16px;
+}
+
+.passwordSpan {
+  visibility: hidden;
+  position: relative;
+  top: -29px;
+  right: -9px;
+  color: #919396;
+  font-size: 16px;
+}
+
+.inputField button {
+  visibility: hidden;
+  position: relative;
+  top: -13px;
+  left: 123px;
+  font-size: small;
+  background-color: #fafafa;
+}
+
+.inputField:focus-within {
+  border: 1px solid #919396;
+}
+
+input[type="text"]:valid,
+input[type="password"]:valid {
+  position: relative;
+  top: 13px;
+  height: 18px;
+}
+
+input[type="password"]:valid ~ button,
+input[type="text"]:valid ~ button {
+  position: relative;
+  top: -12px;
+  left: 177px;
+  border: none;
+  visibility: visible;
+}
+
+input[type="text"]:valid + .nameSpan,
+input[type="password"]:valid + .passwordSpan,
+input[type="text"]:valid + .passwordSpan {
+  visibility: visible;
+  position: relative;
+  top: -22px;
+  right: -7px;
+  font-size: x-small;
+  letter-spacing: 0.2px;
+}
+
+@media only screen and (max-width: 870px) {
+  .header {
+    height: 10px;
+  }
+  .welcomeImage {
+    display: none;
+  }
+  .gridContainer {
+    grid-template-columns: auto;
+    height: 93vh;
+  }
+  .loginBox {
+    grid-column: 1;
+  }
+  .appStoreContainer {
+    grid-column: 1;
+  }
+  .switchAuthMethodBox {
+    grid-column: 1;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .footer {
+    width: 530px;
+  }
+  .footerText {
+    width: 77px;
+  }
+  .footerFirstRow {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .footer {
+    width: 430px;
+  }
+  .footerText {
+    width: 77px;
+  }
+  .footerFirstRow {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .loginBox {
+    background-color: #fafafa;
+    border: none;
+  }
+  .switchAuthMethodBox {
+    background-color: #fafafa;
+    border: none;
+  }
+  .switchAuthMethodBoxSignUp {
+    background-color: #fafafa;
+    border: none;
+  }
+  .signUpBox {
+    background-color: #fafafa;
+    border: none;
+  }
+  .loginButton {
+    background-color: #fafafa;
+  }
+  .forgotPassword {
+    background-color: #fafafa;
+  }
+  .footer {
+    width: 330px;
+  }
+  .footerText {
+    width: 77px;
+  }
+  .footerFirstRow {
+    justify-content: center;
+  }
+}
