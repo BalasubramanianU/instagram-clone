@@ -4,13 +4,14 @@ A web site which is a **clone version** of [instagram](https://www.instagram.com
 The website was build using 
 - React JS
 - Node JS
+- Express JS
 - Mongo DB
 
 # Overview
 This project is a **Single Page Application(SPA)** which includes
 - Responsive web design
 - Authentication using JWT
-- Supported by node JS in backend 
+- Supported by node JS and express JS in backend 
 - Uses mongo DB as the database
 - Unit testing using jest
 
