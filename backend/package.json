@@ -12,7 +12,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "set NODE_ENV=test&&jest --watchAll --coverage --runInBand",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run build"
   },
   "engines": {
     "node": "14.15.0"
