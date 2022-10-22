@@ -504,6 +504,9 @@ input[type="text"]:valid + .passwordSpan {
     grid-template-columns: auto;
     height: 120vh;
   }
+  .gridContainerSignUp {
+    height: 133vh;
+  }
 }
 
 @media only screen and (max-width: 870px) {
@@ -516,6 +519,9 @@ input[type="text"]:valid + .passwordSpan {
   .gridContainer {
     grid-template-columns: auto;
     height: 93vh;
+  }
+  .gridContainerSignUp {
+    height: 106vh;
   }
   .loginBox {
     grid-column: 1;
@@ -533,6 +539,9 @@ input[type="text"]:valid + .passwordSpan {
     grid-template-columns: auto;
     height: 115vh;
   }
+  .gridContainerSignUp {
+    height: 128vh;
+  }
 }
 
 @media only screen and (max-height: 438px) {
@@ -540,12 +549,18 @@ input[type="text"]:valid + .passwordSpan {
     grid-template-columns: auto;
     height: 150vh;
   }
+  .gridContainerSignUp {
+    height: 163vh;
+  }
 }
 
 @media only screen and (max-height: 361px) {
   .gridContainer {
     grid-template-columns: auto;
     height: 180vh;
+  }
+  .gridContainerSignUp {
+    height: 193vh;
   }
 }
 
