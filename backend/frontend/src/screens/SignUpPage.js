@@ -60,7 +60,8 @@ const SignUpPage = () => {
       try {
         setIsValid(false);
         const response = await fetch(
-          "http://192.168.1.8:5000/user/signup",
+          // "http://192.168.1.8:5000/user/signup",
+          "https://instagram-clone-bala.herokuapp.com/user/signup",
           requestOptions
         );
         if (response.ok) {

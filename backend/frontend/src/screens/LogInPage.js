@@ -69,7 +69,8 @@ const LogInPage = () => {
       try {
         setIsValid(false);
         const response = await fetch(
-          "http://192.168.1.8:5000/user/login",
+          // "http://192.168.1.8:5000/user/login",
+          "https://instagram-clone-bala.herokuapp.com/user/login",
           requestOptions
         );
         if (response.ok) {
