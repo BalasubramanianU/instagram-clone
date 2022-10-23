@@ -182,7 +182,7 @@ button:disabled {
 
 .footer {
   height: 100px;
-  width: 630px;
+  width: 930px;
 }
 
 .footerContainer {
@@ -505,7 +505,7 @@ input[type="text"]:valid + .passwordSpan {
     height: 120vh;
   }
   .gridContainerSignUp {
-    height: 133vh;
+    height: 139vh;
   }
 }
 
@@ -540,7 +540,7 @@ input[type="text"]:valid + .passwordSpan {
     height: 115vh;
   }
   .gridContainerSignUp {
-    height: 128vh;
+    height: 135vh;
   }
 }
 
@@ -550,7 +550,7 @@ input[type="text"]:valid + .passwordSpan {
     height: 150vh;
   }
   .gridContainerSignUp {
-    height: 163vh;
+    height: 172vh;
   }
 }
 
@@ -560,7 +560,7 @@ input[type="text"]:valid + .passwordSpan {
     height: 180vh;
   }
   .gridContainerSignUp {
-    height: 193vh;
+    height: 206vh;
   }
 }
 

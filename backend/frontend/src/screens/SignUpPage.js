@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../css/styles.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   validateEmail,
   validateName,
@@ -9,6 +9,7 @@ import {
 } from "../utils/userValidation";
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     logInId: "",
     fullName: "",
@@ -67,6 +68,7 @@ const SignUpPage = () => {
         if (response.ok) {
           localStorage.token = response.headers.get("x-auth-header");
           setIsValid(true);
+          navigate("/home");
           return;
         }
         const errorMessage = await response.text();
@@ -225,6 +227,9 @@ const SignUpPage = () => {
         <div className="footer">
           <div className="footerFirstRow">
             <a className="footerText" href>
+              Meta
+            </a>
+            <a className="footerText" href>
               About
             </a>
             <a className="footerText" href>
@@ -257,12 +262,15 @@ const SignUpPage = () => {
             <a className="footerText" href>
               Instagram Lite
             </a>
+            <a className="footerText" href>
+              Contact Uploading & Non-Users
+            </a>
           </div>
           <div className="footerSecondRow">
             <select className="footerDropdown">
               <option>English</option>
             </select>
-            <p className="smallText">&copy 2021 Instagram from Facebook</p>
+            <p className="smallText">&copy; 2022 Instagram from Meta</p>
           </div>
         </div>
       </div>

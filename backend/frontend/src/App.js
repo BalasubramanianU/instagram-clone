@@ -12,7 +12,15 @@ const App = () => {
       ))}
       <Route path="/signup" element={<SignUpPage />} />
       <Route element={<ProtectedRoute />}>
-        <Route path="/home" element={<p>Home page</p>} />
+        <Route
+          path="/home"
+          element={
+            <p>
+              Welcome! <br></br>Home Page is currently under development. Thanks
+              for checking out.
+            </p>
+          }
+        />
       </Route>
       <Route path="*" element={<p>404 page not found</p>} />
     </Routes>

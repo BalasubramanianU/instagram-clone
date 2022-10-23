@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../css/styles.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   validateEmail,
   validateName,
@@ -9,6 +9,7 @@ import {
 } from "../utils/userValidation";
 
 const LogInPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({ logInId: "", password: "" });
   const [isValid, setIsValid] = useState(false);
   const [passwordField, setPasswordField] = useState({
@@ -78,7 +79,8 @@ const LogInPage = () => {
           const data = await response.json();
           setIsValid(true);
           // check();
-          return console.log(data);
+          navigate("/home");
+          return;
         }
         const errorMessage = await response.text();
         if (errorMessage.includes("User does not exist"))
@@ -206,6 +208,9 @@ const LogInPage = () => {
         <div className="footer">
           <div className="footerFirstRow">
             <a className="footerText" href>
+              Meta
+            </a>
+            <a className="footerText" href>
               About
             </a>
             <a className="footerText" href>
@@ -238,12 +243,15 @@ const LogInPage = () => {
             <a className="footerText" href>
               Instagram Lite
             </a>
+            <a className="footerText" href>
+              Contact Uploading & Non-Users
+            </a>
           </div>
           <div className="footerSecondRow">
             <select className="footerDropdown">
               <option>English</option>
             </select>
-            <p className="smallText">&copy 2021 Instagram from Facebook</p>
+            <p className="smallText">&copy; 2021 Instagram from Meta</p>
           </div>
         </div>
       </div>
