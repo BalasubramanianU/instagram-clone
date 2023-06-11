@@ -12,9 +12,9 @@ require("./startup/db")();
 
 const config = require("config");
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+// });
 
 const port = process.env.PORT || config.get("port");
 var server = app.listen(port, () => {
