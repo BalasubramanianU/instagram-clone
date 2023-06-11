@@ -20,15 +20,18 @@ This project was developed following **Test Driven Development(TDD)** process.
 Currently it has login and signup pages and home page is under active development.
 # Screenshots of the project
 ## Login Page
-![login page screenshot](https://github.com/BalasubramanianU/instagram-clone/tree/main/backend/frontend/project%20images/login%20page.PNG)
-![login page screenshot](https://github.com/BalasubramanianU/instagram-clone/tree/main/backend/frontend/project%20images/login%20page%202.PNG)
-![login page with value](https://github.com/BalasubramanianU/instagram-clone/tree/main/backend/frontend/project%20images/login%20page%20with%20value.PNG)
+<img src="https://github.com/BalasubramanianU/instagram-clone/blob/main/backend/frontend/project%20images/login%20page.PNG" width=50% height=50%>
+<img src="https://github.com/BalasubramanianU/instagram-clone/blob/main/backend/frontend/project%20images/login%20page%202.PNG" width=50% height=50%>
+<img src="https://github.com/BalasubramanianU/instagram-clone/blob/main/backend/frontend/project%20images/login%20page%20with%20value.PNG" width=50% height=50%>
+
 ## Login Page responsive to window size
-![login page responsive](https://github.com/BalasubramanianU/instagram-clone/tree/main/backend/frontend/project%20images/login%20page%20-%20responsive.PNG)
+<img src="https://github.com/BalasubramanianU/instagram-clone/blob/main/backend/frontend/project%20images/login%20page%20-%20responsive.PNG" width=50% height=50%>
+
 ## Signup Page
-![signup page screenshot](https://github.com/BalasubramanianU/instagram-clone/tree/main/backend/frontend/project%20images/signup%20page.PNG)
-![signup page screenshot](https://github.com/BalasubramanianU/instagram-clone/tree/main/backend/frontend/project%20images/signup%20page%202.PNG)
-![signup page with value](https://github.com/BalasubramanianU/instagram-clone/tree/main/backend/frontend/project%20images/signup%20page%20with%20value.PNG)
+<img src="https://github.com/BalasubramanianU/instagram-clone/blob/main/backend/frontend/project%20images/signup%20page.PNG" width=50% height=50%>
+<img src="https://github.com/BalasubramanianU/instagram-clone/blob/main/backend/frontend/project%20images/signup%20page%202.PNG" width=50% height=50%>
+<img src="https://github.com/BalasubramanianU/instagram-clone/blob/main/backend/frontend/project%20images/signup%20page%20with%20value.PNG" width=50% height=50%>
+
 ## Signup Page responsive to window size
-![signup page responsive](https://github.com/BalasubramanianU/instagram-clone/tree/main/backend/frontend/project%20images/signup%20page%20-%20responsive.PNG)
-![signup page responsive](https://github.com/BalasubramanianU/instagram-clone/tree/main/backend/frontend/project%20images/signup%20page%202-%20responsive.PNG)
+<img src="https://github.com/BalasubramanianU/instagram-clone/blob/main/backend/frontend/project%20images/signup%20page%20-%20responsive.PNG" width=50% height=50%>
+<img src="https://github.com/BalasubramanianU/instagram-clone/blob/main/backend/frontend/project%20images/signup%20page%202-%20responsive.PNG" width=50% height=50%>
