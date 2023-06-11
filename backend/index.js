@@ -12,6 +12,8 @@ require("./startup/db")();
 
 const config = require("config");
 
+/* When needed to deploy frontend and backend as a single folder, this code helps in redirecting 
+the flow from backend to frontend */
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
 // });
