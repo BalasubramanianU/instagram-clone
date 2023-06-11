@@ -1,5 +1,9 @@
-# instagram-clone
+# Instagram Clone
 A web site which is a **clone version** of [instagram](https://www.instagram.com/) web site.
+
+# Project link:
+https://instat-clone-frontend.onrender.com/
+
 # Languages used:
 The website was build using 
 - React JS
